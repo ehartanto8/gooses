@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"fmt"
 	"os"
 	"strconv"
@@ -66,5 +67,21 @@ func main() {
 		}
 
 		fmt.Println("- [%v] %s\n", task.Done, status, task.Title)
+	}
+
+	// Save task to file
+	file, err := os.Create("tasks.json")
+
+	if err != nil {
+		fmt.Println("Error creating file:", err)
+		return
+	}
+	defer file.Close()
+
+	encoder := json.NewEncoder(file)
+	err = encoder.Encode(tasks)
+
+	if err != nil {
+		fmt.Println("Error writing JSON:", err)
 	}
 }
