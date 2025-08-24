@@ -1,0 +1,5 @@
+[
+    { "ID": 1, "Title": "Learn Go Structs", "Done": false },
+    { "ID": 2, "Title": "Create a task list", "Done": true },
+    { "ID": 3, "Title": "Practice Go every day", "Done": false }
+]
